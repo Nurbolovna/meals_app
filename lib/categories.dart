@@ -29,7 +29,6 @@ class Categories extends StatelessWidget {
               for(final category in availableCategories)
                 CategoryGridItem(category: category, onSelectedCategory: (){_selectCategory(context, category );}), 
                 //or availableCategories.map((category) => CategoryGridItem(category)).toList()
-
             ],
       ),
     );
