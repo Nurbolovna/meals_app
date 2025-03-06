@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 
 class MealsDetails extends StatelessWidget {
-  const MealsDetails({super.key, required this.meal});
+  const MealsDetails({super.key, required this.meal, required this.status});
 
   final Meal meal;
+  final void Function(Meal meal) status;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.star),
+              onPressed: () {
+                status(meal);
+              },)
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -21,39 +29,44 @@ class MealsDetails extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
-        
+
             SizedBox(
               height: 14,
             ),
-        
+
             Text(
-              'Ingredients', style: TextStyle(fontSize: 24, color: Colors.orange),
+              'Ingredients',
+              style: TextStyle(fontSize: 24, color: Colors.orange),
             ),
             SizedBox(
               height: 10,
             ),
-            for(final ingredient in meal.ingredients)
-            Text(ingredient),
+            for (final ingredient in meal.ingredients) Text(ingredient),
             //style: Theme.of(context)
             //       .textTheme
             //       .bodyMedium!
             //       .copyWith(color: Theme.of(context).colorScheme.background),
-          
-           SizedBox(
+
+            SizedBox(
               height: 14,
             ),
-        
+
             Text(
-              'Steps', style: TextStyle(fontSize: 24, color: Colors.orange),
+              'Steps',
+              style: TextStyle(fontSize: 24, color: Colors.orange),
             ),
             SizedBox(
               height: 10,
             ),
-            for(final step in meal.steps)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-              child: Text(step, textAlign: TextAlign.center,),
-            ) 
+            for (final step in meal.steps)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                child: Text(
+                  step,
+                  textAlign: TextAlign.center,
+                ),
+              )
           ],
         ),
       ),
