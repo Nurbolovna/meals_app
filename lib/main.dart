@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/categories.dart';
+import 'package:meals_app/screens/tabs.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
 final theme = ThemeData(
@@ -18,6 +18,6 @@ class MyApp extends StatelessWidget{
 @override
 Widget build (BuildContext context){
   return MaterialApp(theme:theme, 
-  home: Categories() );
+  home: Tabs() );
 }
 }
