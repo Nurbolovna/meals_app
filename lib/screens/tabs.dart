@@ -3,6 +3,7 @@ import 'package:meals_app/categories.dart';
 import 'package:meals_app/main_drawer.dart';
 import 'package:meals_app/meals.dart';
 import 'package:meals_app/models/meal.dart';
+import 'package:meals_app/screens/filters_screen.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -50,7 +51,8 @@ class _TabsState extends State<Tabs> {
 
   void _setScreen(String identifier){
     if(identifier == "filters"){
-
+      Navigator.of(context).pop();
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> FiltersScreen(),),);
     }
     else{
       Navigator.of(context).pop();
