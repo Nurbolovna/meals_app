@@ -6,13 +6,12 @@ import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/models/category.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key, required this.status, required this.availableMeals});
-  final void Function(Meal meal) status; 
+  const Categories({super.key, required this.availableMeals});
   final List<Meal> availableMeals;
 
   void _selectCategory(BuildContext context, Category category){
     final filteredMeals = availableMeals.where((meal) => meal.categories.contains(category.id),).toList();
-    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> Meals(title: category.title, meals: filteredMeals, status: status,),),);
+    Navigator.push(context, MaterialPageRoute(builder: (ctx)=> Meals(title: category.title, meals: filteredMeals,),),);
       }
 
   @override

@@ -5,18 +5,17 @@ import 'package:meals_app/screens/meals_details.dart';
 //import 'package:meals_app/data/dummy_data.dart';
 
 class Meals extends StatelessWidget {
-  const Meals({super.key, this.title, required this.meals, required this.status});
+  const Meals({super.key, this.title, required this.meals});
 
   final String?title;
   final List<Meal> meals;
-  final void Function(Meal meal) status;
 
   void _selectMeal(BuildContext context, Meal meal) {
     // final filteredMeals = dummyMeals.where((meal) => meal.categories.contains(meal.id),).toList();
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (ctx) => MealsDetails(meal: meal, status: status,),
+        builder: (ctx) => MealsDetails(meal: meal),
       ),
     );
   }
