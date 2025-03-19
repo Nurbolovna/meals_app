@@ -25,7 +25,6 @@ class Tabs extends ConsumerStatefulWidget {
 }
 
 class _TabsState extends ConsumerState<Tabs> {
-  Map<Filter, bool> _selectedFilters = kInitialFilters;
 
   int _selectedPageIndex = 0;
   void _selectPage(int index) {
@@ -47,17 +46,18 @@ class _TabsState extends ConsumerState<Tabs> {
   @override
   Widget build(BuildContext context) {
     final meals = ref.watch(mealsProvider);
+    final activeFilters = ref.watch(filtersProvider);
     final availableMeals = meals.where((Meal) {
-      if (_selectedFilters[Filter.glutenFree]! && !Meal.isGlutenFree) {
+      if (activeFilters[Filter.glutenFree]! && !Meal.isGlutenFree) {
         return false;
       }
-      if (_selectedFilters[Filter.lactoseFree]! && !Meal.isLactoseFree) {
+      if (activeFilters[Filter.lactoseFree]! && !Meal.isLactoseFree) {
         return false;
       }
-      if (_selectedFilters[Filter.vegetarian]! && !Meal.isVegetarian) {
+      if (activeFilters[Filter.vegetarian]! && !Meal.isVegetarian) {
         return false;
       }
-      if (_selectedFilters[Filter.vegan]! && !Meal.isVegan) {
+      if (activeFilters[Filter.vegan]! && !Meal.isVegan) {
         return false;
       }
       return true;
