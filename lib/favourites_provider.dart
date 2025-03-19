@@ -12,7 +12,7 @@ bool toggleFavouriteStatus(Meal meal){
     state = [...state, meal];
     return true; 
   }
-  state = []; 
+  //state = []; 
 }
 }
 
