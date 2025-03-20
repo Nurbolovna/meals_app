@@ -51,10 +51,6 @@ class MealsDetails extends ConsumerWidget {
               height: 10,
             ),
             for (final ingredient in meal.ingredients) Text(ingredient),
-            //style: Theme.of(context)
-            //       .textTheme
-            //       .bodyMedium!
-            //       .copyWith(color: Theme.of(context).colorScheme.background),
 
             SizedBox(
               height: 14,
